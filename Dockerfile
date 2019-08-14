@@ -1,6 +1,8 @@
 FROM alpine:edge
 ARG UID=0
 ARG GID=0
+ARG USER=root
+ARG GROUP=root
 ARG WORKDIR=/
 RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/testing >> /etc/apk/repositories && \
   apk add --no-cache \
@@ -14,5 +16,8 @@ RUN raco pkg install --binary-lib --no-cache --batch --installation --deps force
   raco pkg install --binary-lib --no-cache --batch --installation --auto scribble-lib && \
   raco pkg install --binary-lib --no-cache --batch --installation --auto make && \
   raco pkg install --no-cache --batch --installation --auto rash
+RUN echo "$GROUP:x:$GID:" > /etc/group && \
+  echo "$USER:x:$UID:$GID:Linux User,,,:$HOME:/bin/bash" > /etc/passwd && \
+  echo "$USER:!::0:::::" > /etc/shadow
 USER "$UID:$GID"
 WORKDIR "$WORKDIR"
