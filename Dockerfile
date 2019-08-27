@@ -4,8 +4,7 @@ ARG GID=0
 ARG USER=root
 ARG GROUP=root
 ARG WORKDIR=/
-RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/testing >> /etc/apk/repositories && \
-  apk upgrade --no-cache && \
+RUN apk upgrade --no-cache && \
   wget -O /glibc.apk https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.30-r0/glibc-2.30-r0.apk && \
   apk add --allow-untrusted --no-cache \
     /glibc.apk \
