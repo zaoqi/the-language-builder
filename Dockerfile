@@ -4,6 +4,7 @@ ARG GID=0
 ARG USER=root
 ARG GROUP=root
 ARG WORKDIR=/
+ENV LD_LIBRARY_PATH=/lib:/usr/lib
 RUN apk upgrade --no-cache && \
   wget -O /glibc.apk https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.30-r0/glibc-2.30-r0.apk && \
   apk add --allow-untrusted --no-cache \
