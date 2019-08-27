@@ -11,7 +11,7 @@ RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/testing >> /etc/apk/repositor
     /glibc.apk \
     yarn nodejs npm \
     clang binutils gcc libc-dev \
-    racket openjdk11 php7 python2 rust cargo luajit go \
+    openjdk11 php7 python2 python3 rust cargo luajit go \
     make curl git bash && \
   wget -O - https://download.racket-lang.org/releases/7.4/installers/racket-minimal-7.4-x86_64-linux.tgz | tar -xzv -C /usr/local/lib/ && \
   ln -s /usr/local/lib/racket/bin/* /usr/local/bin/ && \
