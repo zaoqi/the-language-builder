@@ -26,3 +26,4 @@ RUN echo "$GROUP:x:$GID:" > /etc/group && \
   echo "$USER:!::0:::::" > /etc/shadow
 USER "$UID:$GID"
 WORKDIR "$WORKDIR"
+ENTRYPOINT ["/bin/bash"]
