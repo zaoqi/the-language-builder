@@ -5,7 +5,7 @@ ARG USER=root
 ARG GROUP=root
 ARG WORKDIR=/
 RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/testing >> /etc/apk/repositories && \
-  apk upgrade && \
+  apk upgrade --no-cache && \
   apk add --no-cache \
     yarn nodejs npm \
     clang binutils gcc libc-dev \
