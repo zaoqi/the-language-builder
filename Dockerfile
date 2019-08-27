@@ -13,9 +13,9 @@ RUN apk upgrade --no-cache && \
     clang binutils gcc libc-dev \
     openjdk11 php7 python2 python3 rust cargo luajit go \
     make curl git bash && \
+  rm /glibc.apk && \
   wget -O - https://download.racket-lang.org/releases/7.4/installers/racket-minimal-7.4-x86_64-linux.tgz | tar -xzv -C /usr/local/lib/ && \
-  ln -s /usr/local/lib/racket/bin/* /usr/local/bin/ && \
-  ln -s /usr/lib/jvm/java-11-openjdk/bin/* /usr/local/bin/
+  ln -s /usr/local/lib/racket/bin/* /usr/lib/jvm/java-11-openjdk/bin/* /usr/local/bin/
 RUN raco pkg install --binary-lib --no-cache --batch --installation --deps force racket-doc ; \
   raco pkg install --binary-lib --no-cache --batch --installation --deps force scribble-doc ; \
   raco pkg install --binary-lib --no-cache --batch --installation --auto scribble-lib && \
